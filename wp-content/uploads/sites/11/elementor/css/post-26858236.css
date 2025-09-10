@@ -704,21 +704,23 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-3a0f3c8 {
     --container-widget-align-self: stretch;
     --flex-wrap-mobile: wrap;
     --flex-wrap: wrap;
-    --padding-top: 5em;
-    --padding-bottom: 7em;
+    --padding-top: 0em;
+    --padding-bottom: 4em;
     --padding-left: 0em;
     --padding-right: 0em;
 }
 
 .elementor-2685 .elementor-element.elementor-element-44b6fd0:not(.elementor-motion-effects-element-type-background),
 .elementor-2685 .elementor-element.elementor-element-44b6fd0>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-    background-color: var(--e-global-color-cfa1f76);
+    background-image: url(../../../../../../images/05/BG05.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .elementor-2685 .elementor-element.elementor-element-895195a {
     --display: flex;
     --padding-top: 2em;
-    --padding-bottom: 2em;
+    --padding-bottom: 0em;
     --padding-left: 2em;
     --padding-right: 2em;
 }
@@ -729,6 +731,13 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-3a0f3c8 {
 
 .elementor-2685 .elementor-element.elementor-element-c65f51f {
     text-align: center;
+    letter-spacing: 1px;
+    color: #d7d9e4;
+    margin-top: 70px;
+}
+
+.elementor-2685 .elementor-element.elementor-element-c65f51f h2 {
+    color: #fff;
 }
 
 .elementor-2685 .elementor-element.elementor-element-cc16db7 {
@@ -1181,7 +1190,7 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-3a0f3c8 {
     --container-widget-align-self: stretch;
     --flex-wrap-mobile: wrap;
     --flex-wrap: wrap;
-    --padding-top: 5em;
+    --padding-top: 6em;
     --padding-bottom: 4em;
     --padding-left: 0em;
     --padding-right: 0em;
@@ -1202,6 +1211,7 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-3a0f3c8 {
 
 .elementor-2685 .elementor-element.elementor-element-5e9d1a7 {
     text-align: center;
+    letter-spacing: 1px;
 }
 
 .elementor-2685 .elementor-element.elementor-element-e291b1d {
@@ -4077,7 +4087,7 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-e7725e7.elementor-
         --width: 50%;
     }
     .elementor-2685 .elementor-element.elementor-element-895195a {
-        --content-width: 640px;
+        --content-width: 644px;
     }
     .elementor-2685 .elementor-element.elementor-element-7be59ae {
         --width: 32%;
@@ -4231,6 +4241,11 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-e7725e7.elementor-
     margin-top: 42px;
 }
 
+.elementor-element-c1cb8e7 .elementor-button:hover {
+    background-color: #2b2f53;
+    color: #e7bc10;
+}
+
 .elementor-element-d7bcf31 .elementor-button {
     background-color: #2b2f53;
     color: #e7bc10;
@@ -4278,7 +4293,7 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-e7725e7.elementor-
 #elementor-element-7654aa3 {
     text-align: center;
     color: #8c8fa1;
-    font-family: 'Roboto';
+    /* font-family: 'Roboto'; */
     font-weight: 300;
     font-size: 60px;
     overflow: hidden;
@@ -4398,3 +4413,331 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-e7725e7.elementor-
     font-size: 29px;
     margin: 0px;
 }
+
+
+/* https://codepen.io/zebateira/pen/zrvwGR */
+
+
+/* Jelly Effect in Card on hover Css starts  */
+
+#affiliate-model {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 0 20px;
+}
+
+.card {
+    position: relative;
+    border-radius: 12px;
+    height: 450px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background: linear-gradient(180deg, #613761, #1d254f);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* .card:nth-child(1) {
+    background: linear-gradient(180deg, #5f3661, #1d254f);
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(180deg, #2196F3, #1565C0);
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(180deg, #FF5722, #D84315);
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(180deg, #4CAF50, #2E7D32);
+}
+
+.card:nth-child(5) {
+    background: linear-gradient(180deg, #FF9800, #F57C00);
+}
+
+.card:nth-child(6) {
+    background: linear-gradient(180deg, #9C27B0, #7B1FA2);
+} */
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-blur {
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 1px);
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.15s ease-in;
+}
+
+.footer {
+    z-index: 1;
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+}
+
+svg#curve {
+    position: absolute;
+    fill: white;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 450px;
+}
+
+.connections {
+    height: auto;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: auto;
+}
+
+.card:hover .connections {
+    height: 128px;
+}
+
+.connections h4 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 12px 0px 0px 0px;
+    color: #fff;
+}
+
+.connection {
+    transform: translateY(200px);
+    transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card:hover .connection {
+    transform: translateY(0px);
+}
+
+.card:hover .connections .text-visible {
+    display: none;
+}
+
+.info {
+    padding: 0 20px;
+    transform: translateY(250px);
+    transition: transform 1s cubic-bezier(.31, 1.21, .64, 1.02);
+}
+
+.card:hover .info {
+    transform: translateY(0px);
+}
+
+.job {
+    margin-top: 10px;
+    color: #4b4f5b;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.connection.twitter {
+    transition-delay: 0.06s;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    #affiliate-model {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .card {
+        height: 400px;
+        min-width: 300px;
+    }
+    .connections h4 {
+        font-size: 20px;
+    }
+}
+
+
+/* Jelly Effect in Card on hover Css ends  */
+
+#homesec7bg {
+    position: absolute;
+    top: 0%;
+}
+
+.elementor-element-b7a87ef h6 {
+    margin: auto;
+}
+
+
+/* CodePen Home: https://codepen.io/travisw/pen/VGzGye  */
+
+
+/* Fancy 3D flip card (on hover - CSS) starts*/
+
+.text-center {
+    text-align: center;
+}
+
+.color-white {
+    color: #fff;
+}
+
+.box-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+@media screen and (min-width:1380px) {
+    .box-container {
+        flex-direction: row
+    }
+}
+
+.box-item {
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    width: 33%;
+    max-width: 100%;
+}
+
+.flip-box {
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+}
+
+.flip-box-front,
+.flip-box-back {
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    min-height: 286px;
+    -ms-transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+    transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+    -webkit-transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-box-front {
+    -ms-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    background: #d7d9e4;
+}
+
+.flip-box:hover .flip-box-front {
+    -ms-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.flip-box-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    background: #ffffff;
+}
+
+.flip-box:hover .flip-box-back {
+    -ms-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.flip-box .inner {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    outline: 1px solid transparent;
+    -webkit-perspective: inherit;
+    perspective: inherit;
+    z-index: 2;
+    transform: translateY(-50%) translateZ(60px) scale(.94);
+    -webkit-transform: translateY(-50%) translateZ(60px) scale(.94);
+    -ms-transform: translateY(-50%) translateZ(60px) scale(.94);
+    top: 50%;
+}
+
+.elementor-element-cc16db7 h3 {
+    font-size: 26px;
+    color: #1d2030;
+    font-weight: 500;
+}
+
+.flip-box p {
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 1.5em;
+    color: #4b4f5b;
+}
+
+.flip-box-img {
+    width: 60px;
+}
+
+.flip-box-button {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+    padding: 15px 20px;
+    text-transform: uppercase;
+}
+
+
+/* Fancy 3D flip card (on hover - CSS) ends*/

@@ -8,101 +8,153 @@
 </head>
 
 <body>
-    <div>Escape</div>
-    <div>
-        <span>into amazing experiences</span>
+
+    <div id="curve" class="card">
+        <div class="footer">
+            <div class="connections">
+                <div class="connection twitter">
+                    <img src="images/07/Icon/01.png" alt="" width="60px">
+                    <h4>Earn-as-You-Grow</h4>
+                </div>
+                <!-- <div class="connection twitter">
+                    <div class="icon"></div>
+                </div>
+                <div class="connection behance">
+                    <div class="icon"></div>
+                </div> -->
+            </div>
+            <svg id="curve">
+            <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
+            <rect id="dummyRect" x="0" y="0" height="450" width="400"
+		  fill="transparent" />
+            <!-- slide up-->
+            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
+            <!-- slide up and curve in -->
+            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
+            <!-- slide down and curve in -->
+            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
+            <!-- slide down and curve out -->
+            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
+            <!-- curve in -->
+            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
+
+            <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
+        </svg>
+            <div class="info">
+                <div class="job">Users earn commissions instantly for every referral your network builds your income.</div>
+            </div>
+        </div>
+        <div class="card-blur"></div>
     </div>
+
     <style>
-        /* @import url('https://fonts.googleapis.com/css?family=Roboto:300'); */
+        .card {
+            position: absolute;
+            border-radius: 8px;
+            height: 450px;
+            width: 400px;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 0 80px -10px black;
+            overflow: hidden;
+            background: linear-gradient(180deg, #5f3661, #1d254f);
+        }
         
-        body {
+        .card-blur {
+            position: absolute;
+            height: 100%;
+            width: calc(100% + 1px);
+            background-color: black;
+            opacity: 0;
+            transition: opacity 0.15s ease-in;
+        }
+        
+        .footer {
+            z-index: 1;
+            position: absolute;
+            height: 80px;
+            width: 100%;
+            bottom: 0;
+        }
+        
+        svg#curve {
+            position: absolute;
+            fill: white;
+            left: 0;
+            bottom: 0;
+            width: 400px;
+            height: 450px;
+        }
+        
+        .connections {
+            height: 128px;
+            width: 400px;
+            color: #fff;
             text-align: center;
-            background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
-            color: #555;
-            font-family: 'Roboto';
-            font-weight: 300;
-            font-size: 32px;
-            padding-top: 40vh;
-            height: 100vh;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 100px;
+            margin: auto;
+        }
+        
+        .connections img {
+            width: 50px;
+        }
+        
+        .connections h4 {
+            font-size: 28px;
+            font-weight: 500;
+            margin: 8px 0px 0px 0px;
+        }
+        
+        .connection {
+            transform: translateY(200px);
+            transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+        }
+        
+        .card:hover .connection {
+            transform: translateY(0px);
+        }
+        
+        .info {
+            font-family: Inconsolata;
+            padding-left: 20px;
+            transform: translateY(250px);
+            transition: transform 1s cubic-bezier(.31, 1.21, .64, 1.02);
+        }
+        
+        .card:hover .info {
+            transform: translateY(0px);
+        }
+        
+        .job {
+            margin-top: 10px;
+            color: #4b4f5b;
+            font-weight: 500;
+        }
+        
+        .connection.facebook {
+            height: 35px;
+            width: 35px;
+            margin-left: 20px;
+            padding: 0px;
+            border-radius: 100%;
             overflow: hidden;
-            -webkit-backface-visibility: hidden;
-            -webkit-perspective: 1000;
-            -webkit-transform: translate3d(0, 0, 0);
         }
         
-        div {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
+        .connection.twitter {
+            transition-delay: 0.06s;
         }
         
-        div:first-of-type {
-            /* For increasing performance 
-                       ID/Class should've been used. 
-                       For a small demo 
-                       it's okaish for now */
-            animation: showup 7s infinite;
-        }
-        
-        div:last-of-type {
-            width: 0px;
-            animation: reveal 7s infinite;
-        }
-        
-        div:last-of-type span {
-            margin-left: -355px;
-            animation: slidein 7s infinite;
-        }
-        
-        @keyframes showup {
-            0% {
-                opacity: 0;
-            }
-            20% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-        
-        @keyframes slidein {
-            0% {
-                margin-left: -800px;
-            }
-            20% {
-                margin-left: -800px;
-            }
-            35% {
-                margin-left: 0px;
-            }
-            100% {
-                margin-left: 0px;
-            }
-        }
-        
-        @keyframes reveal {
-            0% {
-                opacity: 0;
-                width: 0px;
-            }
-            20% {
-                opacity: 1;
-                width: 0px;
-            }
-            30% {
-                width: 355px;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                width: 355px;
-            }
+        .connection.behance {
+            transition-delay: 0.12s;
         }
     </style>
 </body>

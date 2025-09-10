@@ -228,12 +228,13 @@
     text-align: left;
 }
 
-.elementor-131 .elementor-element.elementor-element-a9af17e img {
+
+/* .elementor-131 .elementor-element.elementor-element-a9af17e img {
     height: 35px;
-}
+} */
 
 .elementor-131 .elementor-element.elementor-element-bc9dae6 {
-    color: var(--e-global-color-4d462f5);
+    color: #eaecf4;
 }
 
 .elementor-131 .elementor-element.elementor-element-d245224 .elementor-search-form__container {
@@ -286,7 +287,7 @@ body.rtl .elementor-131 .elementor-element.elementor-element-d245224 .elementor-
 
 .elementor-131 .elementor-element.elementor-element-ca66cb1 {
     --display: flex;
-    --padding-top: 1em;
+    --padding-top: 4em;
     --padding-bottom: 1em;
     --padding-left: 1em;
     --padding-right: 1em;
@@ -294,8 +295,8 @@ body.rtl .elementor-131 .elementor-element.elementor-element-d245224 .elementor-
 
 .elementor-131 .elementor-element.elementor-element-7fa478e .elementor-heading-title {
     font-family: var(--e-global-typography-7044a64-font-family), Sans-serif;
-    font-size: var(--e-global-typography-7044a64-font-size);
-    font-weight: var(--e-global-typography-7044a64-font-weight);
+    font-size: 22px;
+    font-weight: 500;
     line-height: var(--e-global-typography-7044a64-line-height);
     color: var(--e-global-color-text);
 }
@@ -342,23 +343,23 @@ body:not(.rtl) .elementor-131 .elementor-element.elementor-element-98b94b7 .elem
 .elementor-131 .elementor-element.elementor-element-98b94b7 .elementor-icon-list-item>.elementor-icon-list-text,
 .elementor-131 .elementor-element.elementor-element-98b94b7 .elementor-icon-list-item>a {
     font-family: var(--e-global-typography-112b6c4-font-family), Sans-serif;
-    font-size: var(--e-global-typography-112b6c4-font-size);
+    font-size: 16px;
     font-weight: var(--e-global-typography-112b6c4-font-weight);
     line-height: var(--e-global-typography-112b6c4-line-height);
 }
 
 .elementor-131 .elementor-element.elementor-element-98b94b7 .elementor-icon-list-text {
-    color: var(--e-global-color-4d462f5);
+    color: #eaecf4;
     transition: color 0.3s;
 }
 
 .elementor-131 .elementor-element.elementor-element-98b94b7 .elementor-icon-list-item:hover .elementor-icon-list-text {
-    color: var(--e-global-color-ec3c7a7);
+    color: #e7bc10;
 }
 
 .elementor-131 .elementor-element.elementor-element-c9dedd1 {
     --display: flex;
-    --padding-top: 1em;
+    --padding-top: 4em;
     --padding-bottom: 1em;
     --padding-left: 1em;
     --padding-right: 1em;
@@ -366,8 +367,8 @@ body:not(.rtl) .elementor-131 .elementor-element.elementor-element-98b94b7 .elem
 
 .elementor-131 .elementor-element.elementor-element-c76a319 .elementor-heading-title {
     font-family: var(--e-global-typography-7044a64-font-family), Sans-serif;
-    font-size: var(--e-global-typography-7044a64-font-size);
-    font-weight: var(--e-global-typography-7044a64-font-weight);
+    font-size: 22px;
+    font-weight: 500;
     line-height: var(--e-global-typography-7044a64-line-height);
     color: var(--e-global-color-text);
 }
@@ -414,18 +415,18 @@ body:not(.rtl) .elementor-131 .elementor-element.elementor-element-c8d2098 .elem
 .elementor-131 .elementor-element.elementor-element-c8d2098 .elementor-icon-list-item>.elementor-icon-list-text,
 .elementor-131 .elementor-element.elementor-element-c8d2098 .elementor-icon-list-item>a {
     font-family: var(--e-global-typography-112b6c4-font-family), Sans-serif;
-    font-size: var(--e-global-typography-112b6c4-font-size);
+    font-size: 16px;
     font-weight: var(--e-global-typography-112b6c4-font-weight);
     line-height: var(--e-global-typography-112b6c4-line-height);
 }
 
 .elementor-131 .elementor-element.elementor-element-c8d2098 .elementor-icon-list-text {
-    color: var(--e-global-color-4d462f5);
+    color: #eaecf4;
     transition: color 0.3s;
 }
 
 .elementor-131 .elementor-element.elementor-element-c8d2098 .elementor-icon-list-item:hover .elementor-icon-list-text {
-    color: var(--e-global-color-ec3c7a7);
+    color: #e7bc10;
 }
 
 .elementor-131 .elementor-element.elementor-element-92d7fce {
@@ -572,7 +573,7 @@ body .elementor-131 .elementor-element.elementor-element-d393fb4 .elementor-labe
     font-size: var(--e-global-typography-112b6c4-font-size);
     font-weight: var(--e-global-typography-112b6c4-font-weight);
     line-height: var(--e-global-typography-112b6c4-line-height);
-    color: var(--e-global-color-4d462f5);
+    color: #848cac;
 }
 
 .elementor-131 .elementor-element.elementor-element-2ba79b9 {
