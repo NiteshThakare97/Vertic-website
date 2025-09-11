@@ -1172,7 +1172,7 @@
                     <div class="elementor-element elementor-element-3e3805a elementor-absolute elementor-invisible elementor-widget elementor-widget-image" data-id="3e3805a" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;,&quot;_animation&quot;:&quot;bounceInLeft&quot;}"
                         data-widget_type="image.default">
                         <div class="elementor-widget-container">
-                            <img loading="lazy" decoding="async" src="images/04/Globaltransfer.png" class="attachment-full size-full wp-image-2195" alt="" sizes="(max-width: 312px) 100vw, 312px" />
+                            <img loading="lazy" decoding="async" src="images/04/Globaltransfer.png" class="animatedimg" alt="" sizes="(max-width: 312px) 100vw, 312px" />
                         </div>
                     </div>
                     <!-- <div class="elementor-element elementor-element-3a0f3c8 elementor-absolute elementor-invisible elementor-widget elementor-widget-image" data-id="3a0f3c8" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;,&quot;_animation&quot;:&quot;bounceInRight&quot;}"
@@ -1904,7 +1904,7 @@
                     <div class="elementor-element elementor-element-8410c80 elementor-widget__width-initial animated-slow elementor-invisible elementor-widget elementor-widget-image" data-id="8410c80" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}"
                         data-widget_type="image.default">
                         <div class="elementor-widget-container">
-                            <img fetchpriority="high" decoding="async" width="603" height="640" src="images/08/Mobile.png" class="attachment-full size-full wp-image-1305" alt="" />
+                            <img fetchpriority="high" decoding="async" width="603" height="640" src="images/08/Mobile.png" class="animatedimg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -2666,6 +2666,50 @@
         </div>
     </div>
 
+    <!-- Script for Flyin Flyout animation  -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="./wp-content/js/jquery.animations.min.js"></script>
+    <script src="./wp-content/js/jquery.animations-tile.js"></script>
+    <!-- plugin file -->
+
+    <script>
+        $(function() {
+            function runTileAnimation($el) {
+                // Run your tile animation on one element
+                $el.animate('tile', {
+                    duration: 5000,
+                    rows: 20,
+                    cols: 18,
+                    effect: 'flyIn',
+                    fillMode: 'backwards',
+                    sequence: 'tb'
+                });
+            }
+
+            // Use IntersectionObserver for all .animatedimg elements
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const $target = $(entry.target);
+
+                        // Run animation once
+                        runTileAnimation($target);
+
+                        // If you only want it ONCE, unobserve afterwards:
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.3
+            }); // 0.3 = 30% visible
+
+            // Observe all animated images
+            document.querySelectorAll('.animatedimg').forEach(img => observer.observe(img));
+        });
+    </script>
+
+    <!-- Script for Flyin Flyout animation  -->
+
     <script type="speculationrules">
         {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/finavest\/*"},{"not":{"href_matches":["\/finavest\/wp-*.php","\/finavest\/wp-admin\/*","\/finavest\/wp-content\/uploads\/sites\/11\/*","\/finavest\/wp-content\/*","\/finavest\/wp-content\/plugins\/*","\/finavest\/wp-content\/themes\/hello-elementor\/*","\/finavest\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch,
         .no-prefetch a"}}]},"eagerness":"conservative"}]}
@@ -2957,6 +3001,8 @@
         };
     </script>
     <script src="../../wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementora25a.js?ver=3.5.5" id="elementskit-elementor-js"></script>
+
+
 
 </body>
 

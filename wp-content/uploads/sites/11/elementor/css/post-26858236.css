@@ -4265,7 +4265,8 @@ body.rtl .elementor-2685 .elementor-element.elementor-element-e7725e7.elementor-
     color: #e7bc10;
 }
 
-.elementor-element-d7bcf31 .elementor-button {
+.elementor-element-d7bcf31 .elementor-button,
+.elementor-element-d7bcf31 .elementor-button:hover {
     background-color: #2b2f53;
     color: #e7bc10;
     border-radius: 12px;
@@ -4786,6 +4787,7 @@ svg#curve {
     display: flex;
     justify-content: space-between;
     padding: 0% 3%;
+    align-items: flex-end;
 }
 
 #herobannertext2 button {
@@ -4796,6 +4798,16 @@ svg#curve {
     border-radius: 8px 8px 0px 0px;
     padding: 10px 20px;
 }
+
+#herobannertext2 button:hover {
+    padding: 10px 20px 20px 20px;
+    transition: all 0.5s;
+}
+
+
+/* #herobannertext2:hover {
+    align-items: flex-end;
+} */
 
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     #herobannertext1 {

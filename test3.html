@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tile Animation Mixed Directions</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: system-ui;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            padding: 32px;
+        }
+        
+        .panel {
+            max-width: 540px;
+        }
+        
+        .tile-wrapper {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+        
+        .tile-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        
+        .tile-overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .tile {
+            position: absolute;
+            background-repeat: no-repeat;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+        }
+        /* keyframes */
+        
+        @keyframes flyFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes flyFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes flyFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px) scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        @keyframes flyFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px) scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        @keyframes flyFromTL {
+            from {
+                opacity: 0;
+                transform: translate(-50px, -50px) scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+        }
+        
+        @keyframes flyFromBR {
+            from {
+                opacity: 0;
+                transform: translate(50px, 50px) scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+        }
+        
+        .controls {
+            margin-top: 12px;
+            display: flex;
+            gap: 8px;
+        }
+        
+        button {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 0;
+            cursor: pointer;
+        }
+        
+        .muted {
+            color: #bbb;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="panel">
+        <h3>Tile Animation (Mixed Directions)</h3>
+
+        <div class="tile-wrapper">
+            <img src="images/08/Mobile.png" alt="mobile" class="animatedimg" width="500">
+        </div>
+
+        <div class="controls">
+            <button id="playMixed">Play Mixed FlyIn</button>
+            <button id="recreate">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        (function($) {
+            function shuffle(arr) {
+                for (let i = arr.length - 1; i > 0; --i) {
+                    const r = Math.floor(Math.random() * (i + 1));
+                    [arr[i], arr[r]] = [arr[r], arr[i]];
+                }
+                return arr;
+            }
+
+            function buildTiles($img, rows, cols) {
+                const src = $img.attr('src');
+                const width = $img.width();
+                const height = $img.height();
+                const $wrapper = $img.parent();
+                $wrapper.css({
+                    position: 'relative',
+                    width: width,
+                    height: height,
+                    display: 'inline-block',
+                    overflow: 'hidden'
+                });
+
+                let $overlay = $wrapper.find('.tile-overlay');
+                if ($overlay.length === 0) {
+                    $overlay = $('<div class="tile-overlay"></div>').appendTo($wrapper);
+                } else {
+                    $overlay.empty();
+                }
+
+                const baseW = Math.floor(width / cols);
+                const baseH = Math.floor(height / rows);
+                const remW = width - baseW * cols;
+                const remH = height - baseH * rows;
+
+                const tiles = [];
+                let offsetY = 0;
+                for (let r = 0; r < rows; r++) {
+                    const rowTiles = [];
+                    const useH = (r < remH) ? baseH + 1 : baseH;
+                    let offsetX = 0;
+                    for (let c = 0; c < cols; c++) {
+                        const useW = (c < remW) ? baseW + 1 : baseW;
+                        const $t = $('<div class="tile"></div>').css({
+                            left: offsetX + 'px',
+                            top: offsetY + 'px',
+                            width: useW + 'px',
+                            height: useH + 'px',
+                            backgroundImage: 'url(' + src + ')',
+                            backgroundPosition: (-offsetX) + 'px ' + (-offsetY) + 'px',
+                            backgroundSize: width + 'px ' + height + 'px',
+                            opacity: 0
+                        });
+                        $overlay.append($t);
+                        rowTiles.push($t);
+                        offsetX += useW;
+                    }
+                    tiles.push(rowTiles);
+                    offsetY += useH;
+                }
+                return {
+                    tiles: tiles,
+                    overlay: $overlay,
+                    wrapper: $wrapper
+                };
+            }
+
+            function animateTilesMixed($img, opts) {
+                opts = $.extend({
+                    rows: 12,
+                    cols: 10,
+                    duration: 3000
+                }, opts || {});
+
+                function run() {
+                    const data = buildTiles($img, opts.rows, opts.cols);
+                    const tiles = data.tiles;
+                    const overlay = data.overlay;
+
+                    $img.css({
+                        visibility: 'hidden'
+                    });
+
+                    const directions = ["flyFromTop", "flyFromBottom", "flyFromLeft", "flyFromRight", "flyFromTL", "flyFromBR"];
+                    let delay = 0;
+
+                    for (let r = 0; r < opts.rows; r++) {
+                        for (let c = 0; c < opts.cols; c++) {
+                            const $tile = tiles[r][c];
+                            const anim = directions[Math.floor(Math.random() * directions.length)];
+                            $tile.css({
+                                animationName: anim,
+                                animationDuration: "600ms",
+                                animationTimingFunction: "ease-out",
+                                animationFillMode: "forwards",
+                                animationDelay: delay + "ms"
+                            });
+                            delay += 20; // stagger
+                        }
+                    }
+
+                    setTimeout(() => {
+                        $img.css({
+                            visibility: 'visible'
+                        });
+                        overlay.remove();
+                    }, opts.duration);
+                }
+
+                if ($img[0].complete && $img.width() > 0) {
+                    run();
+                } else {
+                    $img.one('load', run);
+                }
+            }
+
+            $.fn.tileAnimateMixed = function(options) {
+                return this.each(function() {
+                    animateTilesMixed($(this), options);
+                });
+            };
+        })(jQuery);
+
+        // Demo
+        $(function() {
+            const $img = $('.animatedimg');
+            $('#playMixed').on('click', function() {
+                $img.tileAnimateMixed({
+                    rows: 15,
+                    cols: 12,
+                    duration: 4000
+                });
+            });
+            $('#recreate').on('click', function() {
+                $img.css({
+                    visibility: 'visible'
+                }).parent().find('.tile-overlay').remove();
+            });
+        });
+    </script>
+</body>
+
+</html>
