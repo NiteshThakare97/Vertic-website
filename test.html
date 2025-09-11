@@ -9,33 +9,33 @@
 
 <body>
 
-    <div id="curve" class="card">
+    <!-- Code for Card Animation of svg file  -->
+    <!-- <div id="curve" class="card">
         <div class="footer">
             <div class="connections">
                 <div class="connection twitter">
                     <img src="images/07/Icon/01.png" alt="" width="60px">
                     <h4>Earn-as-You-Grow</h4>
                 </div>
-                <!-- <div class="connection twitter">
+                <div class="connection twitter">
                     <div class="icon"></div>
                 </div>
                 <div class="connection behance">
                     <div class="icon"></div>
-                </div> -->
+                </div>
             </div>
             <svg id="curve">
             <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
             <rect id="dummyRect" x="0" y="0" height="450" width="400"
 		  fill="transparent" />
-            <!-- slide up-->
             <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
-            <!-- slide up and curve in -->
+            
             <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
-            <!-- slide down and curve in -->
+            
             <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
-            <!-- slide down and curve out -->
+           
             <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
-            <!-- curve in -->
+            
             <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
 
             <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
@@ -46,7 +46,6 @@
         </div>
         <div class="card-blur"></div>
     </div>
-
     <style>
         .card {
             position: absolute;
@@ -156,7 +155,44 @@
         .connection.behance {
             transition-delay: 0.12s;
         }
+    </style> -->
+
+
+    <!-- Code for Card Animation of svg file ends  -->
+    <img src="images/08/Mobile.png" alt="" class="animatedimg" width="500">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="./wp-content/js/jquery.animations-tile.js"></script>
+    <script src="./wp-content/js/jquery.animations.min.js"></script>
+    <!-- plugin file -->
+
+
+    <style>
+        img.animatedimg {
+            position: absolute;
+        }
     </style>
+    <script>
+        $(function() {
+
+            $('.animatedimg').animate('tile', {
+                "duration": 5000,
+                "rows": 20,
+                "cols": 18,
+                "effect": 'flyIn',
+                "fillMode": 'backwards',
+                "sequence": 'tb'
+            });
+
+            $('.animatedimgtr').animate('tile2', {
+                "duration": 4000,
+                "rows": 50,
+                "cols": 20,
+                "effect": "flyOut",
+                "fillMode": "forwards"
+            });
+        });
+    </script>
 </body>
 
 </html>
