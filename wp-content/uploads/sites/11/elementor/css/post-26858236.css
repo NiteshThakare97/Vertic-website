@@ -4809,6 +4809,19 @@ svg#curve {
     align-items: flex-end;
 } */
 
+#carouselExampleAutoplaying .carousel-control-next,
+#carouselExampleAutoplaying .carousel-control-prev {
+    height: fit-content;
+    margin: auto;
+    padding: .5rem;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     #herobannertext1 {
         padding: 1% 4% 2%;
